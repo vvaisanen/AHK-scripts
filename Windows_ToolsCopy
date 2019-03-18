@@ -5,10 +5,63 @@
 ;;
 
 
+
+;MacOS useful hotkeys made up for Windows;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+!q:: Send !{f4}
+;;!w::CloseWindowScript()
+
+!^F::ToggleFakeFullscreen()
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+#IfWinActive, ahk_class rctrl_renwnd32
+#^1::FlagToday()
+#^2::FlagTomorrow()
+#^3::Flag3Days()
+#^4::FlagNextWeek()
+#^§::UnFlag()
+#^<::LookForAllMailsRelated()
+
+
 ; Skips the gentle method of activating a window and goes straight to the forceful method.
 #WinActivateForce
 ; Don't display a tray icon
 ; #NoTrayIcon
+
+
+#^Q::switchToExcel()
+;^#^E::closeAllExcels()
+
+#^E::switchToExplorer()
++#^E::closeAllExplorers()
+
+#^W::switchToWord()
+;<#^E::closeAllExcels()
+
+#^Z::switchToChrome()
+;<#^E::closeAllExcels()
+
+#^A::switchToOutlook()
+;<#^E::closeAllExcels()
+
+#^S::switchToOneNote()
+;<#^E::closeAllExcels()
+
+#^X::switchToJeeves()
+;<#^E::closeAllExcels()
+
+#^D::switchToWhatsApp()
+;<#^E::closeAllExcels()
+
+
+
+
+
+
+
+
 
 ; Things to do before moving a window
 MoveInit:
@@ -85,21 +138,6 @@ return
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; WindowTopBarHider
-
-;-Caption
-LWIN & LButton::
-WinSet, Style, -0xC00000, A
-return
-;
-
-;+Caption
-LWIN & RButton::
-WinSet, Style, +0xC00000, A
-return
-;
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MouseAccelToggle
 
 
@@ -146,42 +184,12 @@ SPI_SETMOUSE(accel, low="", high="", fWinIni=0)
 return
 ;
 
-!q:: Send !{f4}
-;;!w::CloseWindowScript()
-
-!^F::ToggleFakeFullscreen()
-
-;;Search like Alfred
-!Space:: Send, #s
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;BEGIN INSTANT APPLICATION SWITCHER SCRIPTS;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
-#^Q::switchToExcel()
-
-#^E::switchToExplorer()
-!#^E::closeAllExplorers()
-
-#^W::switchToWord()
-
-#^Z::switchToChrome()
-
-#^A::switchToOutlook()
-
-#^S::switchToOneNote()
-
-#^D::switchToWhatsApp()
-
-#^F::switchToJeeves()
-
-
-
-
+;BEGIN INSTANT APPLICATION SWITCHER SCRIPTS;
 ; This is a script that will always go to The last explorer window you had open.
 ; If explorer is already active, it will go to the NEXT last Explorer window you had open.
 
@@ -298,7 +306,7 @@ else
 switchToWhatsApp()
 {
 IfWinNotExist, ahk_exe WhatsApp.exe
-	Run, C:\Users\Viljami.Väisänen\AppData\Local\WhatsApp\WhatsApp.exe
+	Run, WhatsApp.exe
 	
 if WinActive("ahk_exe WhatsApp.exe")
 	Sendinput ^{tab}
@@ -313,13 +321,7 @@ else
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; VILJAMIs Outlook macrostuff
 
-#IfWinActive, ahk_class rctrl_renwnd32
-#^1::FlagToday()
-#^2::FlagTomorrow()
-#^3::Flag3Days()
-#^4::FlagNextWeek()
-#^§::UnFlag()
-#^<::LookForAllMailsRelated()
+
 
 
 FlagToday()
@@ -468,10 +470,10 @@ WinGetPos x,y,width,height, A
 return GetMonitorAtPos(x+width/2, y+height/2)
 }
 
-#IfWinActive
 
+;;; RELOAD script for a fast reload
 
-#!^R::Reload
+#+^R::Reload
 Sleep 1000 ; If successful, the reload will close this instance during the Sleep, so the line below will never be reached.
 MsgBox, 4,, The script could not be reloaded. Would you like to open it for editing?
 IfMsgBox, Yes, Edit
