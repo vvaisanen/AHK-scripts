@@ -154,6 +154,13 @@ return
 ;;Search like Alfred
 !Space:: Send, #s
 
+
+^!Enter::Send       {Media_Play_Pause}
+^!Left::Send        {Media_Prev}
+^!Right::Send       {Media_Next}
+^!Up::Send   		{Volume_Up}
+^!Down::Send   		{Volume_Down}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -164,12 +171,14 @@ return
 
 #^Q::switchToExcel()
 
+#^W::switchToWord()
+
 #^E::switchToExplorer()
 !#^E::closeAllExplorers()
 
-#^W::switchToWord()
 
-#^Z::switchToChrome()
+
+
 
 #^A::switchToOutlook()
 
@@ -180,7 +189,9 @@ return
 #^F::switchToJeeves()
 
 
+#^Z::switchToChrome()
 
+#^X::switchToHeadSet()
 
 ; This is a script that will always go to The last explorer window you had open.
 ; If explorer is already active, it will go to the NEXT last Explorer window you had open.
@@ -306,6 +317,20 @@ else
 	WinActivate ahk_exe WhatsApp.exe
 }
 
+
+switchToHeadSet()
+{
+IfWinNotExist, ahk_exe headset.exe
+	Run, %appdata%\Local\headset
+	
+if WinActive("ahk_exe headset.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe headset.exe
+}
+
+
+; C:\Users\Viljami.Väisänen\AppData\Local\headset
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
