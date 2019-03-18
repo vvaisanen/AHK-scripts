@@ -3,73 +3,6 @@
 ;; Window gravities for Windows/Autohotkey
 ;; Copyright (C) 2012  Florian Bruhin / The Compiler <me@the-compiler.org>
 ;;
-;; wingravity is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation, either version 3 of the License, or
-;; (at your option) any later version.
-;;
-;; wingravity is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
-;;
-;; You should have received a copy of the GNU General Public License
-;; along with wingravity.  If not, see <http://www.gnu.org/licenses/>.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This tools allows you to efficiently manage windows using your keyboard
-;; under Microsoft Windows.
-;;
-;; The "subtle" window manager calls this gravities, hence the name.
-;;
-;; Windows + Arrow keys is mapped like this:
-;;
-;;                 +----+
-;;                 |####| Up: maximize
-;;                 |####|
-;;                 |####|
-;;            +----+----+----+4
-;; Left:      |##  |    |  ##|
-;; use left   |##  |    |  ##| right: use right half of the screen
-;; half of    |##  |    |  ##|
-;; the screen +----+----+----+
-;;                  Down: restore or minimize
-;;
-;; Windows + Numpad keys is mapped like this:
-;; (screen divided in halfs/quarters)
-;; +----+ +----+ +----+
-;; |77  | |8888| |  99|
-;; |77  | |8888| |  99|
-;; |    | |    | |    |
-;; |    | |    | |    |
-;; +----+ +----+ +----+
-;; |44  | |5555| |  66|
-;; |44  | |5555| |  66|
-;; |44  | |5555| |  66|
-;; |44  | |5555| |  66|
-;; +----+ +----+ +----+
-;; |    | |    | |    |
-;; |    | |    | |    |
-;; |11  | |2222| |  33|
-;; |11  | |2222| |  33|
-;; +----+ +----+ +----+
-;; 0: Restore/Minimize
-;;
-;; Windows + Ctrl + Numpad keys is mapped like this:
-;; (screen divided in thirds)
-;; +---+ +---+ +---+
-;; |7  | | 8 | |  9|
-;; |   | |   | |   |
-;; |   | |   | |   |
-;; +---+ +---+ +---+
-;; |   | |   | |   |
-;; |4  | | 5 | |  6|
-;; |   | |   | |   |
-;; +---+ +---+ +---+
-;; |   | |   | |   |
-;; |   | |   | |   |
-;; |1  | | 2 | |  3|
-;; +---+ +---+ +---+
-;; 0: Restore/Minimize
 
 
 ; Skips the gentle method of activating a window and goes straight to the forceful method.
@@ -214,7 +147,10 @@ return
 ;
 
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;BEGIN INSTANT APPLICATION SWITCHER SCRIPTS;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #^Q::switchToExcel()
@@ -233,6 +169,9 @@ return
 ;!#^E::closeAllExcels()
 
 #^S::switchToOneNote()
+;!#^E::closeAllExcels()
+
+#^D::switchToJeeves()
 ;!#^E::closeAllExcels()
 
 
@@ -334,10 +273,26 @@ IfWinNotExist, ahk_exe onenote.exe
 if WinActive("ahk_exe onenote.exe")
 	Sendinput ^{tab}
 else
-	WinActivate ahk_exe outlook.exe
+	WinActivate ahk_exe onenote.exe
 }
 
 
+switchToJeeves()
+{
+IfWinNotExist, ahk_exe jvs32client.exe
+	Run, C:\jvslocalclientv5\bin64\Client\jvs32client.exe "C:\jvslocalclientv5\Bin64\Client\ThinClientnhkprodCB.ini"
+	
+if WinActive("ahk_exe jvs32client.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe jvs32client.exe
+}
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; VILJAMIs Outlook macrostuff
 
 #IfWinActive, ahk_class rctrl_renwnd32
@@ -346,6 +301,8 @@ else
 #^3::Flag3Days()
 #^4::FlagNextWeek()
 #^§::UnFlag()
+#^<::LookForAllMailsRelated()
+
 
 FlagToday()
 {
@@ -417,5 +374,38 @@ UnFlag()
 		Send {Tab}
 	Send {Return}
 }
+Return
+
+LookForAllMailsRelated()
+{
+#IfWinActive ahk_class OutlookGrid1
+
+	Send +{F10}
+	loop, 10 
+		Send {Tab}
+	Send {Return}
+	Send {Return}
+	
+#IfWinActive
+}
 
 #IfWinActive
+
+
+#IfWinActive, ahk_class XLMAIN
+#^9::DeleteRow()
+
+DeleteRow()
+{
+
+
+}
+
+#IfWinActive
+
+
+#!^R::Reload
+Sleep 1000 ; If successful, the reload will close this instance during the Sleep, so the line below will never be reached.
+MsgBox, 4,, The script could not be reloaded. Would you like to open it for editing?
+IfMsgBox, Yes, Edit
+Return
