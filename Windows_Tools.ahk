@@ -309,7 +309,7 @@ else
 switchToWhatsApp()
 {
 IfWinNotExist, ahk_exe WhatsApp.exe
-	Run, C:\Users\Viljami.Väisänen\AppData\Local\WhatsApp\WhatsApp.exe
+	Run, %localappdata%\WhatsApp\WhatsApp.exe
 	
 if WinActive("ahk_exe WhatsApp.exe")
 	Sendinput ^{tab}
@@ -321,7 +321,7 @@ else
 switchToHeadSet()
 {
 IfWinNotExist, ahk_exe headset.exe
-	Run, %appdata%\Local\headset
+	Run, %localappdata%\headset\headset.exe
 	
 if WinActive("ahk_exe headset.exe")
 	Sendinput ^{tab}
