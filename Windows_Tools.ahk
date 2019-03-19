@@ -147,7 +147,7 @@ return
 ;
 
 !q:: Send !{f4}
-;;!w::CloseWindowScript()
+!w:: Send ^W
 
 !^F::ToggleFakeFullscreen()
 
@@ -155,7 +155,7 @@ return
 !Space:: Send, #s
 
 
-^!Enter::Send       {Media_Play_Pause}
+^!RShift::Send      {Media_Play_Pause}
 ^!Left::Send        {Media_Prev}
 ^!Right::Send       {Media_Next}
 ^!Up::Send   		{Volume_Up}
@@ -494,6 +494,21 @@ return GetMonitorAtPos(x+width/2, y+height/2)
 }
 
 #IfWinActive
+
+
+; WINDOWS KEY + H TOGGLES HIDDEN FILES 
+#h:: 
+; SHGetSetSettings works with structure full of bitfields; allocate space for it
+VarSetCapacity(SHELLSTATE, 32, 0)
+; get the current value of the show/hide setting and store it in the structure
+DllCall("Shell32\SHGetSetSettings", "Ptr", &SHELLSTATE, "UInt", SSF_SHOWALLOBJECTS := 0x0001, "Int", false)
+; invert the setting
+NumPut(NumGet(SHELLSTATE) ^ (1 << 0), SHELLSTATE,, "Int")
+; set the new setting from the value in the structure
+DllCall("Shell32\SHGetSetSettings", "Ptr", &SHELLSTATE, "UInt", SSF_SHOWALLOBJECTS, "Int", true)
+; get Explorer to send SHCNE_ASSOCCHANGED to all windows, which has the nice side effect of refreshing 'em
+DllCall("Shell32\SHChangeNotify", "Int", SHCNE_ASSOCCHANGED := 0x8000000, "UInt", 0, "Ptr", 0, "Ptr", 0)
+Return
 
 
 #!^R::Reload
