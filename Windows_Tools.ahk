@@ -147,7 +147,7 @@ return
 ;
 
 !q:: Send !{f4}
-!w:: Send ^W
+!w:: Send ^w
 
 !^F::ToggleFakeFullscreen()
 
@@ -192,6 +192,9 @@ return
 #^Z::switchToChrome()
 
 #^X::switchToHeadSet()
+
+
+
 
 ; This is a script that will always go to The last explorer window you had open.
 ; If explorer is already active, it will go to the NEXT last Explorer window you had open.
