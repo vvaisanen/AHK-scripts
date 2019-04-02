@@ -148,6 +148,7 @@ return
 
 !q:: Send !{f4}
 !w:: Send ^w
+^d:: Send {Del}
 
 !^F::ToggleFakeFullscreen()
 
