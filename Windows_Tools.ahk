@@ -155,7 +155,7 @@ return
 !Space:: Send, #s
 
 
-^!RShift::Send      {Media_Play_Pause}
+^!ä::Send      {Media_Play_Pause}
 ^!Left::Send        {Media_Prev}
 ^!Right::Send       {Media_Next}
 ^!Up::Send   		{Volume_Up}
