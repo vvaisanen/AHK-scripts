@@ -4,6 +4,10 @@
 ;; Copyright (C) 2012  Florian Bruhin / The Compiler <me@the-compiler.org>
 ;;
 
+WS_EX_TOOLWINDOW := 0x00000080
+!MButton::WinSet, ExStyle, ^%WS_EX_TOOLWINDOW%, A
+^MButton::WinSet, AlwaysOnTop, toggle, A
+
 
 ; Skips the gentle method of activating a window and goes straight to the forceful method.
 #WinActivateForce
@@ -177,7 +181,9 @@ return
 #^E::switchToExplorer()
 !#^E::closeAllExplorers()
 
+#^R::switchToJeeves()
 
+#^T::switchToTeamviewer()
 
 
 
@@ -187,8 +193,13 @@ return
 
 #^D::switchToWhatsApp()
 
-#^F::switchToJeeves()
+#^F::switchToSkypeForBusiness()
 
+#^G::switchToSkype()
+
+
+
+#^<::switchToFireFox()
 
 #^Z::switchToChrome()
 
@@ -301,8 +312,10 @@ else
 switchToJeeves()
 {
 IfWinNotExist, ahk_exe jvs32client.exe
+	{
 	Run, C:\jvslocalclientv5\bin64\Client\jvs32client.exe "C:\jvslocalclientv5\Bin64\Client\ThinClientnhkprodCB.ini"
-	
+	TrayTip , "Jeeves keräilee voimia.", "Jeeves käynnistyy.", 2
+	}
 if WinActive("ahk_exe jvs32client.exe")
 	Sendinput ^{tab}
 else
@@ -322,6 +335,33 @@ else
 }
 
 
+switchToSkype()
+{
+IfWinNotExist, ahk_exe ApplicationFrameHost.exe
+	Run, Skype.exe
+	
+if WinActive("ahk_exe ApplicationFrameHost.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe ApplicationFrameHost.exe
+}
+
+
+switchToSkypeForBusiness()
+{
+IfWinNotExist, ahk_exe lync.exe
+	Run, lync.exe
+	
+if WinActive("ahk_exe lync.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe lync.exe
+}
+
+
+;ApplicationFrameHost.exe
+; lync.exe
+
 switchToHeadSet()
 {
 IfWinNotExist, ahk_exe headset.exe
@@ -331,6 +371,28 @@ if WinActive("ahk_exe headset.exe")
 	Sendinput ^{tab}
 else
 	WinActivate ahk_exe headset.exe
+}
+
+switchToTeamviewer()
+{
+IfWinNotExist, ahk_exe TeamViewer.exe
+	Run, C:\Program Files (x86)\TeamViewer\TeamViewer.exe
+	
+if WinActive("ahk_exe TeamViewer.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe TeamViewer.exe
+}
+
+switchToFireFox()
+{
+IfWinNotExist, ahk_exe firefox.exe
+	Run, firefox.exe
+	
+if WinActive("ahk_exe firefox.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe firefox.exe
 }
 
 
@@ -348,7 +410,7 @@ else
 #^3::Flag3Days()
 #^4::FlagNextWeek()
 #^§::UnFlag()
-#^<::LookForAllMailsRelated()
+#^!<::LookForAllMailsRelated()
 
 
 FlagToday()
@@ -501,7 +563,7 @@ return GetMonitorAtPos(x+width/2, y+height/2)
 
 
 ; WINDOWS KEY + H TOGGLES HIDDEN FILES 
-#h:: 
+!+.:: 
 ; SHGetSetSettings works with structure full of bitfields; allocate space for it
 VarSetCapacity(SHELLSTATE, 32, 0)
 ; get the current value of the show/hide setting and store it in the structure
@@ -513,6 +575,8 @@ DllCall("Shell32\SHGetSetSettings", "Ptr", &SHELLSTATE, "UInt", SSF_SHOWALLOBJEC
 ; get Explorer to send SHCNE_ASSOCCHANGED to all windows, which has the nice side effect of refreshing 'em
 DllCall("Shell32\SHChangeNotify", "Int", SHCNE_ASSOCCHANGED := 0x8000000, "UInt", 0, "Ptr", 0, "Ptr", 0)
 Return
+
+
 
 
 #!^R::Reload
