@@ -562,7 +562,7 @@ return GetMonitorAtPos(x+width/2, y+height/2)
 #IfWinActive
 
 
-; WINDOWS KEY + H TOGGLES HIDDEN FILES 
+; Shift + alt + .  TOGGLES HIDDEN FILES 
 !+.:: 
 ; SHGetSetSettings works with structure full of bitfields; allocate space for it
 VarSetCapacity(SHELLSTATE, 32, 0)
