@@ -199,11 +199,11 @@ return
 
 
 
-#^<::switchToFireFox()
+#^X::switchToFireFox()
 
 #^Z::switchToChrome()
 
-#^X::switchToHeadSet()
+#^C::switchToHeadSet()
 
 
 
@@ -410,7 +410,7 @@ else
 #^3::Flag3Days()
 #^4::FlagNextWeek()
 #^§::UnFlag()
-#^!<::LookForAllMailsRelated()
+#^<::LookForAllMailsRelated()
 
 
 FlagToday()
