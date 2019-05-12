@@ -206,6 +206,9 @@ return
 #^C::switchToHeadSet()
 
 
+#!^F4::uninstallRadeonRX480()
+
+
 
 
 ; This is a script that will always go to The last explorer window you had open.
@@ -362,6 +365,8 @@ else
 ;ApplicationFrameHost.exe
 ; lync.exe
 
+
+; C:\Users\Viljami.Väisänen\AppData\Local\headset
 switchToHeadSet()
 {
 IfWinNotExist, ahk_exe headset.exe
@@ -396,7 +401,25 @@ else
 }
 
 
-; C:\Users\Viljami.Väisänen\AppData\Local\headset
+
+
+uninstallRadeonRX480()
+{
+	Run, %comspec% /K %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "Radeon (TM) RX 480 Graphics"
+	TrayTip , "Aikaa sammutukseen 5 sekuntia.", "Tietokone sammutetaan.", 1
+	sleep, 1000
+	TrayTip , "Aikaa sammutukseen 4 sekuntia.", "Tietokone sammutetaan.", 1
+	sleep, 1000
+	TrayTip , "Aikaa sammutukseen 3 sekuntia.", "Tietokone sammutetaan.", 1
+	sleep, 1000
+	TrayTip , "Aikaa sammutukseen 2 sekuntia.", "Tietokone sammutetaan.", 1
+	sleep, 1000
+	TrayTip , "Aikaa sammutukseen 1 sekuntia.", "Tietokone sammutetaan.", 1
+	sleep, 1000
+	Shutdown, 1
+}
+;Run, %comspec% %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "Radeon (TM) RX 480 Graphics"
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
