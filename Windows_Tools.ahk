@@ -9,6 +9,45 @@ WS_EX_TOOLWINDOW := 0x00000080
 ^MButton::WinSet, AlwaysOnTop, toggle, A
 
 
+; Jeeves add points and vice versa
+#^§::
+ StoredClipboard := Clipboard
+ 
+If StrLen(StoredClipboard) = 10
+{
+ StringTrimRight, FirstPartOfSpareNumbers, StoredClipboard, 9
+ 
+ StringTrimRight, SecondPartOfSpareNumbers, StoredClipboard, 5
+ StringTrimLeft, SecondPartOfSpareNumbers, SecondPartOfSpareNumbers, 1
+ 
+ StringTrimRight, ThirdPartOfSpareNumbers, StoredClipboard, 1
+ StringTrimLeft, ThirdPartOfSpareNumbers, ThirdPartOfSpareNumbers, 5
+ 
+ StringTrimLeft, FourthPartOfSpareNumbers, StoredClipboard, 9
+
+PointVariable = .
+
+ClipBoard :=  FirstPartOfSpareNumbers . PointVariable . SecondPartOfSpareNumbers . PointVariable . ThirdPartOfSpareNumbers . PointVariable . FourthPartOfSpareNumbers
+SoundBeep
+ Return
+}
+
+If StrLen(StoredClipboard) = 13
+{
+ StoredClipboard := StrReplace(StoredClipboard, ".", "")
+ Clipboard  :=  StoredClipboard
+ SoundBeep
+Return
+
+SoundBeep
+SoundBeep
+SoundBeep
+
+}
+Return
+
+
+
 ; Skips the gentle method of activating a window and goes straight to the forceful method.
 #WinActivateForce
 ; Don't display a tray icon
