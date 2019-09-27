@@ -5,19 +5,19 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 SetKeyDelay [, 1000, 100, Play]
 Esc::ExitApp
 PrintScreen::
-loop, 70
+loop, 437
 		{
 		Send ^c
-		Sleep 200 
+		Sleep 300 
 		Send !{Tab}
 		Sleep 300
 		Send ^v
-		Sleep 200
+		Sleep 300
 		Send {Tab}
-		Sleep 200
+		Sleep 300
 		Send !{Tab}
 		Sleep 300
 		Send {Down}
-		Sleep 200
+		Sleep 300
 		}
 Return

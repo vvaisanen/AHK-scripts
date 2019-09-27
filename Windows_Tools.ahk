@@ -9,7 +9,7 @@ WS_EX_TOOLWINDOW := 0x00000080
 ^MButton::WinSet, AlwaysOnTop, toggle, A
 
 
-; Jeeves add points and vice versa
+; Jeeves - add points and vice versa for sparepartnumbers
 #^§::
  StoredClipboard := Clipboard
  
@@ -48,7 +48,7 @@ Return
 
 
 
-; Skips the gentle method of activating a window and goes straight to the forceful method.
+; Skips the gentle method of activating a window and goes straight to the forceful method
 #WinActivateForce
 ; Don't display a tray icon
 ; #NoTrayIcon
@@ -199,6 +199,7 @@ return
 !Space:: Send, #s
 
 
+;; Media control buttons
 ^!ä::Send      {Media_Play_Pause}
 ^!Left::Send        {Media_Prev}
 ^!Right::Send       {Media_Next}
@@ -440,7 +441,9 @@ else
 }
 
 
-
+;; eGPU automatic force uninstall and computer shutdown script.
+;; This is a workaraound to make internal screen stay usable after reboot.
+;; MBP's have a bug which makes internal screen unusable if eGPU Display Adapter is online on bootup. Basically internal screen goes black if eGPU adapter is online.
 
 uninstallRadeonRX480()
 {
@@ -562,17 +565,13 @@ LookForAllMailsRelated()
 
 
 ;;; FAKEFULLSCREENTOGGLE
-;;; Known issues:
-;;;
-;;; - Weird results for windows with custom decorations such as
-;;; Chrome, or programs with a Ribbon interface.
-;;; - Emacs will be maximized behind instead of in front of
-;;; the taskbar. Workaround: WinHide ahk_class Shell_TrayWndA
+
+
 ToggleFakeFullscreen()
 {
 CoordMode Screen, Window
 static WINDOW_STYLE_UNDECORATED := -0xC40000
-static savedInfo := Object() ;; Associative array!
+static savedInfo := Object()
 WinGet, id, ID, A
 if (savedInfo[id])
 {
