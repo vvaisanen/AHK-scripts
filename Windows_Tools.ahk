@@ -447,20 +447,12 @@ else
 
 uninstallRadeonRX480()
 {
-	Run, %comspec% /K %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "Radeon (TM) RX 480 Graphics"
-	TrayTip , "Aikaa sammutukseen 5 sekuntia.", "Tietokone sammutetaan.", 1
-	sleep, 1000
-	TrayTip , "Aikaa sammutukseen 4 sekuntia.", "Tietokone sammutetaan.", 1
-	sleep, 1000
-	TrayTip , "Aikaa sammutukseen 3 sekuntia.", "Tietokone sammutetaan.", 1
-	sleep, 1000
-	TrayTip , "Aikaa sammutukseen 2 sekuntia.", "Tietokone sammutetaan.", 1
-	sleep, 1000
-	TrayTip , "Aikaa sammutukseen 1 sekuntia.", "Tietokone sammutetaan.", 1
-	sleep, 1000
-	Shutdown, 1
+	Run, %comspec% /K %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "AMD Radeon RX 5700 XT"
+	TrayTip , "eGPU poistettu. Irroita eGPU:n kaapeli, ja sammuta tietokone.", 1
+
+	;;Shutdown, 1
 }
-;Run, %comspec% %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "Radeon (TM) RX 480 Graphics"
+;Run, %comspec% %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "AMD Radeon RX 5700 XT"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
