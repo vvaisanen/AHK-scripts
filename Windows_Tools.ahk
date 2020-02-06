@@ -225,15 +225,13 @@ return
 
 #^T::switchToTeamviewer()
 
+#^A::switchToOutlookOrGOGGalaxy()
 
-
-#^A::switchToOutlook()
-
-#^S::switchToOneNote()
+#^S::switchToOneNoteOrReminders()
 
 #^D::switchToWhatsApp()
 
-#^F::switchToSkypeForBusiness()
+#^F::switchToTeamsOrDiscord()
 
 #^G::switchToSkype()
 
@@ -246,7 +244,6 @@ return
 #^C::switchToHeadSet()
 
 
-#!^F4::uninstallRadeonRX480()
 
 
 
@@ -329,19 +326,40 @@ else
 }
 
 
-switchToOutlook()
+switchToOutlookOrGOGGalaxy()
 {
+if (A_ComputerName = "ViljamiPC") {
+	IfWinNotExist, ahk_exe GalaxyClient.exe
+		Run, C:\Program Files (x86)\GOG Galaxy\GalaxyClient.exe
+		
+	if WinActive("ahk_exe GalaxyClient.exe")
+		Sendinput ^{tab}
+	else
+		WinActivate ahk_exe GalaxyClient.exe
+	}
+else {
 IfWinNotExist, ahk_exe outlook.exe
 	Run outlook.exe
 if WinActive("ahk_exe outlook.exe")
 	Sendinput ^{tab}
 else
 	WinActivate ahk_exe outlook.exe
+	}
 }
 
 
-switchToOneNote()
+switchToOneNoteOrReminders()
 {
+if (A_ComputerName = "ViljamiPC") {
+	IfWinNotExist, ahk_exe firefox.exe
+		Run, firefox.exe "https://www.icloud.com/reminders/"
+		
+	if WinActive("ahk_exe firefox.exe")
+		Sendinput ^{tab}
+	else
+		WinActivate ahk_exe firefox.exe
+	}
+else {
 IfWinNotExist, ahk_exe onenote.exe
 	Run, onenote.exe
 	
@@ -349,6 +367,7 @@ if WinActive("ahk_exe onenote.exe")
 	Sendinput ^{tab}
 else
 	WinActivate ahk_exe onenote.exe
+	}
 }
 
 
@@ -390,15 +409,26 @@ else
 }
 
 
-switchToSkypeForBusiness()
+switchToTeamsOrDiscord()
 {
-IfWinNotExist, ahk_exe lync.exe
-	Run, lync.exe
-	
-if WinActive("ahk_exe lync.exe")
+if (A_ComputerName = "ViljamiPC") {
+	IfWinNotExist, ahk_exe discord.exe
+		Run, discord.exe
+		
+	if WinActive("ahk_exe discord.exe")
+		Sendinput ^{tab}
+	else
+		WinActivate ahk_exe discord.exe
+	}
+else {
+	IfWinNotExist, ahk_exe teams.exe
+	Run, teams.exe
+
+	if WinActive("ahk_exe teams.exe")
 	Sendinput ^{tab}
-else
-	WinActivate ahk_exe lync.exe
+	else
+	WinActivate ahk_exe teams.exe
+	}
 }
 
 
@@ -441,18 +471,6 @@ else
 }
 
 
-;; eGPU automatic force uninstall and computer shutdown script.
-;; This is a workaraound to make internal screen stay usable after reboot.
-;; MBP's have a bug which makes internal screen unusable if eGPU Display Adapter is online on bootup. Basically internal screen goes black if eGPU adapter is online.
-
-uninstallRadeonRX480()
-{
-	Run, %comspec% /K %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "AMD Radeon RX 5700 XT"
-	TrayTip , "eGPU poistettu. Irroita eGPU:n kaapeli, ja sammuta tietokone.", 1
-
-	;;Shutdown, 1
-}
-;Run, %comspec% %userprofile%\Documents\devmanview-x64\DevManView.exe /uninstall "AMD Radeon RX 5700 XT"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
