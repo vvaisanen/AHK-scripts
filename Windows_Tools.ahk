@@ -142,8 +142,7 @@ return
 
 #^W::switchToWord()
 
-#^E::switchToExplorer()
-!#^E::closeAllExplorers()
+#^E::switchToMSTODO()
 
 #^R::switchToJeeves()
 
@@ -346,7 +345,7 @@ if (A_ComputerName = "ViljamiPC") {
 	}
 else {
 	IfWinNotExist, ahk_exe teams.exe
-	Run, teams.exe
+	Run, C:\Users\Viljami.Väisänen\AppData\Local\Microsoft\Teams\Update.exe --processStart "Teams.exe"
 
 	if WinActive("ahk_exe teams.exe")
 	Sendinput ^{tab}
@@ -354,6 +353,30 @@ else {
 	WinActivate ahk_exe teams.exe
 	}
 }
+
+switchToMSTODO()
+{
+IfWinNotExist, ahk_exe ApplicationFrameHost.exe
+	Run, Skype.exe
+	
+if WinActive("ahk_exe ApplicationFrameHost.exe")
+	Sendinput ^{tab}
+else
+	WinActivate ahk_exe ApplicationFrameHost.exe
+}
+
+
+WinGetActiveProcessName() {
+    WinGet name, ProcessName, A
+    if (name = "ApplicationFrameHost.exe") {
+        ControlGet hwnd, Hwnd,, Windows.UI.Core.CoreWindow1, A
+        if hwnd {
+            WinGet name, ProcessName, ahk_id %hwnd%
+        }
+    }
+    return name
+}
+
 
 
 ;ApplicationFrameHost.exe
