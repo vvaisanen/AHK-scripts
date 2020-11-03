@@ -1,0 +1,140 @@
+[0224/154802.052:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.053:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.053:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.053:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.053:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.061:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.061:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.061:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.061:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.061:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.061:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.066:ERROR:process_info.cc(98)] ReadProcessMemory UNICODE_STRING: Vain osa ReadProcessMemory- tai WriteProcessMemory-pyynnöstä suoritettiin. (0x12B)
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c2013f3800, size 0x40 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c2013f3828, size 0x18 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20143ac00, size 0x3e fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20143ac28, size 0x16 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20144ee40, size 0x62 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20144ee68, size 0x3a fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b360, size 0x46 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b388, size 0x1e fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c201449e00, size 0x36 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c201449e28, size 0xe fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b270, size 0x44 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b298, size 0x1c fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b810, size 0x38 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b838, size 0x10 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145ad70, size 0x3e fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145ad98, size 0x16 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b770, size 0x3c fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b798, size 0x14 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b900, size 0x40 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c20145b928, size 0x18 fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c2014258b0, size 0x3c fully unreadable
+[0224/154802.077:ERROR:process_info.cc(617)] range at 0x1c2014258d8, size 0x14 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c2013f3800, size 0x40 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c2013f3828, size 0x18 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20143ac00, size 0x3e fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20143ac28, size 0x16 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20144ee40, size 0x62 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20144ee68, size 0x3a fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b360, size 0x46 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b388, size 0x1e fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c201449e00, size 0x36 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c201449e28, size 0xe fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b270, size 0x44 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b298, size 0x1c fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b810, size 0x38 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b838, size 0x10 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145ad70, size 0x3e fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145ad98, size 0x16 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b770, size 0x3c fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b798, size 0x14 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b900, size 0x40 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c20145b928, size 0x18 fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c2014258b0, size 0x3c fully unreadable
+[0224/154802.078:ERROR:process_info.cc(617)] range at 0x1c2014258d8, size 0x14 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c2013f3800, size 0x40 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c2013f3828, size 0x18 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20143ac00, size 0x3e fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20143ac28, size 0x16 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20144ee40, size 0x62 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20144ee68, size 0x3a fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b270, size 0x44 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b298, size 0x1c fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b810, size 0x38 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b838, size 0x10 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c201449e00, size 0x36 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c201449e28, size 0xe fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b360, size 0x46 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b388, size 0x1e fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145ad70, size 0x3e fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145ad98, size 0x16 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b900, size 0x40 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b928, size 0x18 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b770, size 0x3c fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c20145b798, size 0x14 fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c2014258b0, size 0x3c fully unreadable
+[0224/154802.079:ERROR:process_info.cc(617)] range at 0x1c2014258d8, size 0x14 fully unreadable
+[0820/153016.215:ERROR:process_reader_win.cc(123)] NtOpenThread: {Käyttö estetty} Prosessi pyysi objektin käyttöä, mutta käyttöoikeuksia ei ole myönnetty. (0xc0000022)
+[0820/153016.218:ERROR:exception_snapshot_win.cc(98)] thread ID 27516 not found in process
+[0907/163254.665:ERROR:process_reader_win.cc(123)] NtOpenThread: {Käyttö estetty} Prosessi pyysi objektin käyttöä, mutta käyttöoikeuksia ei ole myönnetty. (0xc0000022)
+[0907/163254.665:ERROR:exception_snapshot_win.cc(99)] thread ID 10528 not found in process
+[1007/100307.847:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1007/133313.103:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1009/141607.138:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1009/143129.404:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1012/093155.805:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1012/130251.541:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1012/133331.611:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1012/140557.287:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1012/153444.860:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1012/155730.100:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/092034.552:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/102416.234:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/104407.352:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/113037.126:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/123321.276:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/140904.530:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/150009.989:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1013/151407.715:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1014/111634.322:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1015/085413.184:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1015/121141.705:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1015/140554.242:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1015/154633.159:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1016/100519.593:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1016/120802.436:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1020/142621.057:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1026/091830.364:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1026/102531.241:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1026/142528.145:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1026/160256.800:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1026/161808.795:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1027/093615.237:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1027/115418.404:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1027/140419.646:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1027/142121.152:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1027/150943.687:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1028/093531.734:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1028/104802.471:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1028/123444.755:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1028/125249.752:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1029/091021.952:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1029/163746.294:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1102/091907.014:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1102/110244.212:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1102/145231.829:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1103/090218.711:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1103/092929.027:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1103/131330.410:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)

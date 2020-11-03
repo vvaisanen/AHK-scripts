@@ -117,7 +117,7 @@ return
 !w:: Send ^w
 ^d:: Send {Del}
 
-!^F::ToggleFakeFullscreen()
+;;!^F::ToggleFakeFullscreen()
 
 ;;Search like Alfred
 !Space:: Send, #s
@@ -298,7 +298,7 @@ switchToJeeves()
 {
 IfWinNotExist, ahk_exe jvs32client.exe
 	{
-	Run, C:\jvslocalclientv5\bin64\Client\jvs32client.exe "C:\jvslocalclientv5\Bin64\Client\ThinClientnhkprodCB.ini"
+	Run, C:\jvslocalclientv5\bin64_V51R4\Client\jvs32client.exe "C:\jvslocalclientv5\bin64_V51R4\Client\ThinClientnhkprod_Internet.ini"
 	TrayTip , "Jeeves keräilee voimia.", "Jeeves käynnistyy.", 2
 	}
 if WinActive("ahk_exe jvs32client.exe")
