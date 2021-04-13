@@ -12,10 +12,9 @@ IfWinExist, PS4-järjestelmän etäkäyttö
 else
     Return
 
-Send {Enter down}  ; Press down the Enter key.
-Random, rand2, 1001, 1347
+Send MouseClick, left  ; Press down the Enter key.
+Random, rand2, 200, 1347
 Sleep,  %rand2% ; hold the Enter key down for at least  1sec. Neccesary for ps4 remote play to register
-Send {Enter up}  ; Release Enter key.
 Return
 
 
