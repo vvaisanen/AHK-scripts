@@ -160,9 +160,9 @@ return
 
 
 
-#^X::switchToFireFox()
+#^Z::switchToFireFox()
 
-#^Z::switchToChrome()
+#^X::switchToChrome()
 
 #^C::switchToHeadSet()
 
