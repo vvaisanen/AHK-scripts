@@ -113,6 +113,10 @@ SPI_SETMOUSE(accel, low="", high="", fWinIni=0)
 return
 ;
 
+
+; Disable shitty capslock
+Capslock:: Send {*}
+
 !q:: Send !{f4}
 !w:: Send ^w
 ^d:: Send {Del}
@@ -165,6 +169,101 @@ return
 #^X::switchToChrome()
 
 #^C::switchToHeadSet()
+
+
+#^F1::desktopMode_MultiMonitorToolx64()
+#^F2::tvMode_MultiMonitorToolx64()
+; #^F4::enableAllScreens_MultiMonitorToolx64()
+#^F5::adjustDesktop_MultiMonitorToolx64()
+
+
+
+
+
+
+; NEEXT all the scripts
+
+
+
+
+desktopMode_MultiMonitorToolx64()
+{
+if (A_ComputerName = "ViljamiPC") {
+
+	Run, C:\Users\wilzu\Documents\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "C:\Users\wilzu\Documents\multimonitortool-x64\Desktop.cfg"
+
+	}
+else {
+
+	msgbox "Uncofigured setup desktop of desktopMode_MultiMonitorToolx64"
+	
+	}
+}
+
+
+
+
+
+
+
+tvMode_MultiMonitorToolx64()
+{
+if (A_ComputerName = "ViljamiPC") {
+
+	Run, C:\Users\wilzu\Documents\multimonitortool-x64\MultiMonitorTool.exe /LoadConfig "C:\Users\wilzu\Documents\multimonitortool-x64\TV.cfg"
+
+	}
+else {
+
+	msgbox "Uncofigured setup desktop of tvMode_MultiMonitorToolx64"
+	
+	}
+}
+
+
+
+
+
+enableAllScreens_MultiMonitorToolx64()
+{
+if (A_ComputerName = "ViljamiPC") {
+
+	msgbox "Uncofigured setup desktop of enableAllScreens_MultiMonitorToolx64"
+
+	}
+else {
+
+	msgbox "Uncofigured setup desktop of enableAllScreens_MultiMonitorToolx64"
+	
+	}
+}
+
+
+
+
+
+
+adjustDesktop_MultiMonitorToolx64()
+{
+if (A_ComputerName = "ViljamiPC") {
+
+	IfWinNotExist, ahk_exe discord.exe
+		{
+		Run, discord.exe
+		sleep 1000
+		}
+		
+	Run, C:\Users\wilzu\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 2 Process "discord.exe" /WindowLeft 20 /WindowRight 1164 /WindowTop 20 /WindowBottom 1462 /WindowWidth 1164 /WindowHeight 1444
+	Run, "C:\Program Files\Rainmeter\Rainmeter.exe" !RefreshApp
+
+	}
+else {
+
+	msgbox "Uncofigured setup desktop of adjustDesktop_MultiMonitorToolx64"
+	
+	}
+}
+
 
 
 
@@ -274,13 +373,13 @@ else
 switchToOneNoteOrReminders()
 {
 if (A_ComputerName = "ViljamiPC") {
-	IfWinNotExist, ahk_exe firefox.exe
-		Run, firefox.exe "https://www.icloud.com/reminders/"
+	IfWinNotExist, ahk_exe chrome.exe
+		Run, chrome.exe "https://www.icloud.com/reminders/"
 		
-	if WinActive("ahk_exe firefox.exe")
+	if WinActive("ahk_exe chrome.exe")
 		Sendinput ^{tab}
 	else
-		WinActivate ahk_exe firefox.exe
+		WinActivate ahk_exe chrome.exe
 	}
 else {
 IfWinNotExist, ahk_exe onenote.exe
@@ -357,7 +456,7 @@ else {
 switchToMSTODO()
 {
 IfWinNotExist, ahk_exe ApplicationFrameHost.exe
-	Run, Skype.exe
+	Run, MSToDo.exe
 	
 if WinActive("ahk_exe ApplicationFrameHost.exe")
 	Sendinput ^{tab}
