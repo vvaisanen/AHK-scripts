@@ -259,8 +259,22 @@ if (A_ComputerName = "ViljamiPC") {
 	}
 else {
 
-	msgbox "Uncofigured setup desktop of adjustDesktop_MultiMonitorToolx64"
-	
+	IfWinNotExist, ahk_exe ApplicationFrameHost.exe
+		{
+		Run, MSToDo.exe
+		Sleep 1000
+		}
+		
+		
+	IfWinNotExist, ahk_exe teams.exe
+		{
+		Run, C:\Users\Viljami.Väisänen\AppData\Local\Microsoft\Teams\Update.exe --processStart "Teams.exe"
+		Sleep 1000
+		}
+		
+	Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 3 Process "Teams.exe" /WindowLeft 10 /WindowRight 1164 /WindowTop 5 /WindowBottom 910 /WindowWidth 1164 /WindowHeight 910
+	Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 3 Process "ApplicationFrameHost.exe" /WindowLeft 10 /WindowRight 1170 /WindowTop 930 /WindowBottom 1874 /WindowWidth 1170 /WindowHeight 930
+
 	}
 }
 
