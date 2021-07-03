@@ -9,42 +9,7 @@ WS_EX_TOOLWINDOW := 0x00000080
 ^MButton::WinSet, AlwaysOnTop, toggle, A
 
 
-; Jeeves - add points and vice versa for sparepartnumbers
-#^§::
- StoredClipboard := Clipboard
- 
-If StrLen(StoredClipboard) = 10
-{
- StringTrimRight, FirstPartOfSpareNumbers, StoredClipboard, 9
- 
- StringTrimRight, SecondPartOfSpareNumbers, StoredClipboard, 5
- StringTrimLeft, SecondPartOfSpareNumbers, SecondPartOfSpareNumbers, 1
- 
- StringTrimRight, ThirdPartOfSpareNumbers, StoredClipboard, 1
- StringTrimLeft, ThirdPartOfSpareNumbers, ThirdPartOfSpareNumbers, 5
- 
- StringTrimLeft, FourthPartOfSpareNumbers, StoredClipboard, 9
 
-PointVariable = .
-
-ClipBoard :=  FirstPartOfSpareNumbers . PointVariable . SecondPartOfSpareNumbers . PointVariable . ThirdPartOfSpareNumbers . PointVariable . FourthPartOfSpareNumbers
-SoundBeep
- Return
-}
-
-If StrLen(StoredClipboard) = 13
-{
- StoredClipboard := StrReplace(StoredClipboard, ".", "")
- Clipboard  :=  StoredClipboard
- SoundBeep
-Return
-
-SoundBeep
-SoundBeep
-SoundBeep
-
-}
-Return
 
 
 
@@ -116,6 +81,7 @@ return
 
 ; Disable shitty capslock
 Capslock:: Send {*}
+!Capslock:: SetCapsLockState Off
 
 !q:: Send !{f4}
 !w:: Send ^w
@@ -146,7 +112,7 @@ Capslock:: Send {*}
 
 #^W::switchToWord()
 
-#^E::switchToMSTODO()
+#^S::switchToMSTODO()
 
 #^R::switchToJeeves()
 
@@ -154,13 +120,13 @@ Capslock:: Send {*}
 
 #^A::switchToOutlookOrGOGGalaxy()
 
-#^S::switchToOneNoteOrReminders()
+#^G::switchToOneNoteOrReminders()
 
-#^D::switchToWhatsApp()
+#^F::switchToWhatsApp()
 
-#^F::switchToTeamsOrDiscord()
+#^D::switchToTeamsOrDiscord()
 
-#^G::switchToSkype()
+;#^G::switchToSkype()
 
 
 
@@ -178,10 +144,50 @@ Capslock:: Send {*}
 
 
 
-
+#^F8::debug()
 
 
 ; NEEXT all the scripts
+debug()
+{
+; Enumerate Query
+
+lookedDevice := "P27q"
+for device in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_PnPEntity")
+	{
+	list := device.name
+	
+	If InStr(list, lookedDevice, false) > 0
+		{
+		workComputer := true
+		Break
+		}
+	}
+
+msgBox %workComputer%
+}
+
+
+debug2()
+{
+; Enumerate Query
+for device in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_PnPEntity")
+   list = device.name "`n"
+MsgBox, %list%
+}
+
+debugTEMP()
+{
+	
+	WinGet name, ProcessName, A
+    if (name = "ApplicationFrameHost.exe") {
+        ControlGet hwnd, Hwnd,, Windows.UI.Core.CoreWindow1, A
+        if hwnd {
+            WinGet name, ProcessName, ahk_id %hwnd%
+        }
+    }
+    WinClose, ProcessName, ahk_id %hwnd% 
+}
 
 
 
@@ -258,7 +264,8 @@ if (A_ComputerName = "ViljamiPC") {
 
 	}
 else {
-
+	
+	
 	IfWinNotExist, ahk_exe ApplicationFrameHost.exe
 		{
 		Run, MSToDo.exe
@@ -272,10 +279,32 @@ else {
 		Sleep 1000
 		}
 		
-	Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 3 Process "Teams.exe" /WindowLeft 10 /WindowRight 1164 /WindowTop 5 /WindowBottom 910 /WindowWidth 1164 /WindowHeight 910
-	Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 3 Process "ApplicationFrameHost.exe" /WindowLeft 10 /WindowRight 1170 /WindowTop 930 /WindowBottom 1874 /WindowWidth 1170 /WindowHeight 930
+		
+	lookedDevice := "P27q"
+	for device in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_PnPEntity")
+		{
+		list := device.name
+		
+		If InStr(list, lookedDevice, false) > 0
+			{
+			kempele := true
+			}
+		}
+		
+	If kempele > 0 Then
+		{
+			Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 4 Process "Teams.exe" /WindowLeft 10 /WindowRight 1064 /WindowTop 5 /WindowBottom 910 /WindowWidth 1064 /WindowHeight 910
+			Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 4 Process "ApplicationFrameHost.exe" /WindowLeft 8 /WindowRight 1070 /WindowTop 930 /WindowBottom 1874 /WindowWidth 1070 /WindowHeight 930
 
+		}
+	Else
+		{
+			Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 3 Process "Teams.exe" /WindowLeft 10 /WindowRight 1164 /WindowTop 5 /WindowBottom 910 /WindowWidth 1164 /WindowHeight 910
+			Run, C:\Users\Viljami.Väisänen\Documents\multimonitortool-x64\MultiMonitorTool.exe /MoveWindow 3 Process "ApplicationFrameHost.exe" /WindowLeft 10 /WindowRight 1170 /WindowTop 930 /WindowBottom 1874 /WindowWidth 1170 /WindowHeight 930
+
+		}
 	}
+	
 }
 
 
@@ -413,6 +442,8 @@ IfWinNotExist, ahk_exe jvs32client.exe
 	{
 	Run, C:\jvslocalclientv5\bin64_V51R4\Client\jvs32client.exe "C:\jvslocalclientv5\bin64_V51R4\Client\ThinClientnhkprod_Internet.ini"
 	TrayTip , "Jeeves keräilee voimia.", "Jeeves käynnistyy.", 2
+	WinWaitActive, "SQL Sisäänkirjoittautuminen"
+	WinSetTitle, "SQL Sisaankirjoittautuminen"
 	}
 if WinActive("ahk_exe jvs32client.exe")
 	Sendinput ^{tab}
@@ -472,23 +503,13 @@ switchToMSTODO()
 IfWinNotExist, ahk_exe ApplicationFrameHost.exe
 	Run, MSToDo.exe
 	
-if WinActive("ahk_exe ApplicationFrameHost.exe")
+if WinActive("Microsoft To Do ahk_exe ApplicationFrameHost.exe")
 	Sendinput ^{tab}
 else
 	WinActivate ahk_exe ApplicationFrameHost.exe
 }
 
 
-WinGetActiveProcessName() {
-    WinGet name, ProcessName, A
-    if (name = "ApplicationFrameHost.exe") {
-        ControlGet hwnd, Hwnd,, Windows.UI.Core.CoreWindow1, A
-        if hwnd {
-            WinGet name, ProcessName, ahk_id %hwnd%
-        }
-    }
-    return name
-}
 
 
 
@@ -521,13 +542,13 @@ else
 
 switchToFireFox()
 {
-IfWinNotExist, ahk_exe firefox.exe
-	Run, firefox.exe
+IfWinNotExist, ahk_exe msedge.exe
+	Run,  msedge.exe
 	
-if WinActive("ahk_exe firefox.exe")
+if WinActive("ahk_exe msedge.exe")
 	Sendinput ^{tab}
 else
-	WinActivate ahk_exe firefox.exe
+	WinActivate ahk_exe msedge.exe
 }
 
 
@@ -539,86 +560,238 @@ else
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; VILJAMIs Outlook macrostuff
 
-#IfWinActive, ahk_class rctrl_renwnd32
+
 #^1::FlagToday()
 #^2::FlagTomorrow()
-#^3::Flag3Days()
+#^3::FlagFriday()
 #^4::FlagNextWeek()
-#^§::UnFlag()
+#^§::UnFlagorTrimCharacters()
 #^<::LookForAllMailsRelated()
 
 
 FlagToday()
 {
-	Send ^+G
-	Send {Tab}
-	Send {Tab}
-	Send {Return}
-	Sendinput ^{tab}
-	Send {Return}
-	Send {Tab}
-	Send {Return}
-	Send {Return}
-	Send {Return}
+	if WinActive("ahk_exe outlook.exe")
+	{
+		tm := A_Now
+		FormatTime, tm, % tm, dd/MM/yyyy h:mm
+		Icon := 0 ;olMarkToday
+		Subject := "Hello"
+		Outlook := ComObjActive("Outlook.Application")
+		Item := Outlook.ActiveExplorer.Selection.Item(1)
+		Item.MarkAsTask(0)
+		Item.TaskStartDate := tm
+		Item.TaskDueDate := tm
+		Item.Save
+	}
+	
+	If WinActive("Microsoft To Do ahk_exe ApplicationFrameHost.exe")
+	{
+		;MsgBox "lol"
+		;Send {Return}
+		;loop, 6
+		;	Send {Tab}
+	}
+	else
+	{
+		
+	}
+Return
 }
-
 
 FlagTomorrow()
 {
-	Send ^+G
-	Send {Tab}
-	Send {Tab}
-	Send {Return}
-	Sendinput ^{tab}
-	Send {Return}
-	Send {Tab}
-	Send {Return}
-	Send {Right}
-	Send {Return}
-	Send {Return}
+	if WinActive("ahk_exe outlook.exe")
+	{
+		tm := A_Now
+		tm += 1, Days
+		FormatTime, tm, % tm, dd/MM/yyyy h:mm
+		Icon := 1 ;olMarkTomorrow
+		Subject := "Hello"
+		Outlook := ComObjActive("Outlook.Application")
+		Item := Outlook.ActiveExplorer.Selection.Item(1)
+		Item.MarkAsTask(Icon)
+		Item.TaskStartDate := tm
+		Item.TaskDueDate := tm
+		Item.Save
+	
+		; We cleanup all the objects afterwards
+		Selection:= "" ;
+		Item := "" ;
+		Outlook := "" ;
+		Subject := "" ;
+		Icon := "" ;
+	}
+	else
+	{}
+Return
 }
 
-Flag3Days()
-{
-	Send ^+G
-	Send {Tab}
-	Send {Tab}
-	Send {Return}
-	Sendinput ^{tab}
-	Send {Return}
-	Send {Tab}
-	Send {Return}
-	loop, 3 
-		Send {Right}
-	Send {Return}
-	Send {Return}
+FlagFriday()
+{	
+	if WinActive("ahk_exe outlook.exe")
+	{
+		tm := A_Now
+		If A_WDay = 7
+			{
+			tm += 6, Days
+			}
+		Else
+			{
+			tm += 6-A_WDay, Days
+			}
+		FormatTime, tm, % tm, dd/MM/yyyy h:mm
+		Icon := 2 ;olMarkThisWeek
+		Subject := "Hello"
+		Outlook := ComObjActive("Outlook.Application")
+		Item := Outlook.ActiveExplorer.Selection.Item(1)
+		Item.MarkAsTask(Icon)
+		Item.TaskStartDate := tm
+		Item.TaskDueDate := tm
+		Item.Save
+		
+		; We cleanup all the objects afterwards
+		Selection:= "" ;
+		Item := "" ;
+		Outlook := "" ;
+		Subject := "" ;
+		Icon := "" ;
+	}
+	else
+	{}
+Return
 }
 
 
 FlagNextWeek()
 {
-	Send ^+G
-	Send {Tab}
-	Send {Tab}
-	Send {Return}
-	Sendinput ^{tab}
-	Send {Return}
-	Send {Tab}
-	Send {Return}
-	loop, 7
-		Send {Right}
-	Send {Return}
-	Send {Return}
+	if WinActive("ahk_exe outlook.exe")
+	{
+		
+		tm := A_Now
+		
+		If A_WDay > 2
+			{
+			tm += 9-A_WDay, Days
+			}
+		Else
+			{
+			tm += 2-A_WDay, Days
+			}
+		
+		FormatTime, tm, % tm, dd/MM/yyyy h:mm
+
+		Icon := 3 ;olMarkNextWeek
+		Subject := "Hello"
+		Outlook := ComObjActive("Outlook.Application")
+		Item := Outlook.ActiveExplorer.Selection.Item(1)
+		Item.MarkAsTask(Icon)
+		Item.TaskStartDate := tm
+		Item.TaskDueDate := tm
+		Item.Save
+		
+		; We cleanup all the objects afterwards
+		Selection:= "" ;
+		Item := "" ;
+		Outlook := "" ;
+		Subject := "" ;
+		Icon := "" ;
+	}
+	else
+	{}
+Return
 }
 
-UnFlag()
-{
-	Send ^+G
-	loop, 7
-		Send {Tab}
-	Send {Return}
+
+
+
+
+UnFlagorTrimCharacters()
+{	
+	if WinActive("ahk_exe outlook.exe")
+	{
+
+		tm := A_Now
+		tm += -120, Days|
+
+		FormatTime, tm, % tm, MM/dd/yyyy h:mm
+		Icon := 3 ;olMarkNextWeek
+		Subject := "Hello"
+		Outlook := ComObjActive("Outlook.Application")
+		Item := Outlook.ActiveExplorer.Selection.Item(1)
+		Item.MarkAsTask(Icon)
+		Item.TaskStartDate := tm
+		Item.TaskDueDate := tm
+	
+	
+		Icon := 5 olMarkComplete
+		Subject := "Hello"
+		Outlook := ComObjActive("Outlook.Application")
+		Item := Outlook.ActiveExplorer.Selection.Item(1)
+		Item.MarkAsTask(Icon)
+		
+		Item.TaskStartDate := tm
+		Item.TaskDueDate := tm
+		Item.ClearTaskFlag
+		Item.Save
+			
+				
+			; We cleanup all the objects afterwards
+		Selection:= "" ;
+		Item := "" ;
+		Outlook := "" ;
+		Subject := "" ;
+		Icon := "" ;
+	}
+	
+	
+	
+	else
+	{
+	; Jeeves - add points and vice versa for sparepartnumbers
+		 StoredClipboard := Clipboard
+		 
+		If StrLen(StoredClipboard) = 10
+		{
+		 StringTrimRight, FirstPartOfSpareNumbers, StoredClipboard, 9
+		 
+		 StringTrimRight, SecondPartOfSpareNumbers, StoredClipboard, 5
+		 StringTrimLeft, SecondPartOfSpareNumbers, SecondPartOfSpareNumbers, 1
+		 
+		 StringTrimRight, ThirdPartOfSpareNumbers, StoredClipboard, 1
+		 StringTrimLeft, ThirdPartOfSpareNumbers, ThirdPartOfSpareNumbers, 5
+		 
+		 StringTrimLeft, FourthPartOfSpareNumbers, StoredClipboard, 9
+
+		PointVariable = .
+
+		ClipBoard :=  FirstPartOfSpareNumbers . PointVariable . SecondPartOfSpareNumbers . PointVariable . ThirdPartOfSpareNumbers . PointVariable . FourthPartOfSpareNumbers
+		SoundBeep
+		 Return
+		}
+
+		If StrLen(StoredClipboard) = 13
+		{
+		 StoredClipboard := StrReplace(StoredClipboard, ".", "")
+		 Clipboard  :=  StoredClipboard
+		 SoundBeep
+		Return
+
+		SoundBeep
+		SoundBeep
+		SoundBeep
+
+		}
+		Return
+	}
+
 }
+
+
 Return
+
+
+
 
 LookForAllMailsRelated()
 {
