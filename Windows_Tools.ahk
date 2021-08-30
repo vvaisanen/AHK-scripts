@@ -162,6 +162,7 @@ for device in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_PnPEntity")
 		workComputer := true
 		Break
 		}
+		 
 	}
 
 msgBox %workComputer%
@@ -174,6 +175,7 @@ debug2()
 for device in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_PnPEntity")
    list = device.name "`n"
 MsgBox, %list%
+return
 }
 
 debugTEMP()
@@ -187,6 +189,7 @@ debugTEMP()
         }
     }
     WinClose, ProcessName, ahk_id %hwnd% 
+	return
 }
 
 
@@ -204,6 +207,7 @@ else {
 	msgbox "Uncofigured setup desktop of desktopMode_MultiMonitorToolx64"
 	
 	}
+	return
 }
 
 
@@ -224,6 +228,7 @@ else {
 	msgbox "Uncofigured setup desktop of tvMode_MultiMonitorToolx64"
 	
 	}
+	return
 }
 
 
@@ -242,6 +247,7 @@ else {
 	msgbox "Uncofigured setup desktop of enableAllScreens_MultiMonitorToolx64"
 	
 	}
+	return
 }
 
 
@@ -304,6 +310,7 @@ else {
 
 		}
 	}
+	return
 	
 }
 
@@ -324,11 +331,13 @@ if WinActive("ahk_exe explorer.exe")
 	GroupActivate, taranexplorers, r
 else
 	WinActivate ahk_class CabinetWClass ;you have to use WinActivatebottom if you didn't create a window group.
+	return
 }
 
 closeAllExplorers()
 {
 WinClose,ahk_group taranexplorers
+return
 }
 
 
@@ -355,6 +364,7 @@ Process, Exist, WINWORD.EXE
 	else
 		WinActivate ahk_class OpusApp
 	}
+	return
 }
 
 switchToExcel()
@@ -376,6 +386,7 @@ Process, Exist, EXCEL.EXE
 	else
 		WinActivate ahk_class XLMAIN
 	}
+	return
 }
 
 
@@ -410,6 +421,7 @@ if WinActive("ahk_exe outlook.exe")
 else
 	WinActivate ahk_exe outlook.exe
 	}
+	return
 }
 
 
@@ -433,6 +445,7 @@ if WinActive("ahk_exe onenote.exe")
 else
 	WinActivate ahk_exe onenote.exe
 	}
+	return
 }
 
 
@@ -442,13 +455,14 @@ IfWinNotExist, ahk_exe jvs32client.exe
 	{
 	Run, C:\jvslocalclientv5\bin64_V51R4\Client\jvs32client.exe "C:\jvslocalclientv5\bin64_V51R4\Client\ThinClientnhkprod_Internet.ini"
 	TrayTip , "Jeeves keräilee voimia.", "Jeeves käynnistyy.", 2
-	WinWaitActive, "SQL Sisäänkirjoittautuminen"
-	WinSetTitle, "SQL Sisaankirjoittautuminen"
 	}
 if WinActive("ahk_exe jvs32client.exe")
 	Sendinput ^{tab}
 else
+	{
 	WinActivate ahk_exe jvs32client.exe
+	}
+ return
 }
 
 
@@ -461,6 +475,8 @@ if WinActive("ahk_exe WhatsApp.exe")
 	Sendinput ^{tab}
 else
 	WinActivate ahk_exe WhatsApp.exe
+	
+ return
 }
 
 
@@ -509,7 +525,7 @@ else
 	WinActivate ahk_exe ApplicationFrameHost.exe
 }
 
-
+return
 
 
 
@@ -670,13 +686,13 @@ FlagNextWeek()
 		
 		tm := A_Now
 		
-		If A_WDay > 2
+		If A_WDay > 1
 			{
 			tm += 9-A_WDay, Days
 			}
 		Else
 			{
-			tm += 2-A_WDay, Days
+			tm += 1-A_WDay, Days
 			}
 		
 		FormatTime, tm, % tm, dd/MM/yyyy h:mm
@@ -714,7 +730,7 @@ UnFlagorTrimCharacters()
 		tm := A_Now
 		tm += -120, Days|
 
-		FormatTime, tm, % tm, MM/dd/yyyy h:mm
+		FormatTime, tm, % tm, dd/MM/yyyy h:mm
 		Icon := 3 ;olMarkNextWeek
 		Subject := "Hello"
 		Outlook := ComObjActive("Outlook.Application")
