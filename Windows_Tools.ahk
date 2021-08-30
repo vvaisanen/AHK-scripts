@@ -80,7 +80,7 @@ return
 
 
 ; Disable shitty capslock
-Capslock:: Send {*}
+; Capslock:: Send {*}
 !Capslock:: SetCapsLockState Off
 
 !q:: Send !{f4}
