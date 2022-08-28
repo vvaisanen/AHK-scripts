@@ -558,13 +558,13 @@ else
 
 switchToFireFox()
 {
-IfWinNotExist, ahk_exe msedge.exe
-	Run,  msedge.exe
+IfWinNotExist, ahk_exe brave.exe
+	Run,  brave.exe
 	
-if WinActive("ahk_exe msedge.exe")
+if WinActive("ahk_exe brave.exe")
 	Sendinput ^{tab}
 else
-	WinActivate ahk_exe msedge.exe
+	WinActivate ahk_exe brave.exe
 }
 
 
